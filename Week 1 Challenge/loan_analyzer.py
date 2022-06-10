@@ -17,17 +17,20 @@ loan_costs = [500, 600, 200, 1000, 450]
 # How many loans are in the list?
 # @TODO: Use the `len` function to calculate the total number of loans in the list.
 # Print the number of loans from the list
-# YOUR CODE HERE!
+loan_length = len(loan_costs)
+print(f"There are {loan_length} loans")
 
 # What is the total of all loans?
 # @TODO: Use the `sum` function to calculate the total of all loans in the list.
 # Print the total value of the loans
-# YOUR CODE HERE!
+loan_sum = sum(loan_costs)
+print(f"The sum of all loans is ${loan_sum}")
 
 # What is the average loan amount from the list?
 # @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
 # Print the average loan amount
-# YOUR CODE HERE!
+loan_average = (sum(loan_costs)/len(loan_costs))
+print(f"The average loan value is ${loan_average}")
 
 """Part 2: Analyze Loan Data.
 
@@ -107,7 +110,8 @@ new_loan = {
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 # YOUR CODE HERE!
-print(f"The present value of the loan is: {present_value}")
+#un-comment line below
+#print(f"The present value of the loan is: {present_value}")
 
 
 """Part 4: Conditionally filter lists of loans.
