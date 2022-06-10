@@ -1,9 +1,13 @@
 # coding: utf-8
 import csv
 from pathlib import Path
-print("\n")
+from re import A
 
+print("\n")
+print("Part 1")
+print("\n")
 """Part 1: Automate the Calculations.
+
 
 Automate the calculations for the loan portfolio summaries.
 
@@ -33,6 +37,9 @@ print(f"The sum of all loans is ${loan_sum}")
 loan_average = (sum(loan_costs)/len(loan_costs))
 print(f"The average loan value is ${loan_average}")
 
+print("\n")
+print("Part 2")
+print("\n")
 """Part 2: Analyze Loan Data.
 
 Analyze the loan to determine the investment evaluation.
@@ -68,7 +75,6 @@ loan = {
 # Print each variable.
 future_value = loan.get ("future_value")
 remaining_months = loan.get ("remaining_months")
-print("\n")
 print(f"The future value of the loan is ${future_value}")
 print(f"There are {remaining_months} months left on the loan")
 
@@ -85,17 +91,17 @@ print(f"The present value of the loan is ${round(present_value, 2)}")
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
 #    If the present value of the loan is greater than or equal to the cost, then print a message that says the loan is worth at least the cost to buy it.
 #    Else, the present value of the loan is less than the loan cost, then print a message that says that the loan is too expensive and not worth the price.
-print("\n")
+
 loan_cost = loan.get ("loan_price")
 if present_value >= loan_cost:
     print("The loan is at least worth the cost to buy it")
 else:
     print("The loan is too expensive and not worth the price")
 
-
-
+print("\n")
+print("Part 3")
+print("\n")
 """Part 3: Perform Financial Calculations.
-
 Perform financial calculations using functions.
 
 1. Define a new function that will be used to calculate present value.
@@ -104,6 +110,7 @@ Perform financial calculations using functions.
 2. Use the function to calculate the present value of the new loan given below.
     a. Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 """
+
 
 # Given the following loan data, you will need to calculate the present value for the loan
 new_loan = {
@@ -116,15 +123,18 @@ new_loan = {
 # @TODO: Define a new function that will be used to calculate present value.
 #    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
 #    The function should return the `present_value` for the loan.
-# YOUR CODE HERE!
+
+def calculate_present_value(future_value, remaining_months, annual_discount_rate):
+    present_value = future_value / (1 + annual_discount_rate/12) ** remaining_months
+    return present_value
 
 
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
-# YOUR CODE HERE!
-#un-comment line below
-#print(f"The present value of the loan is: {present_value}")
 
+annual_discount_rate = 0.20
+calculate_present_value(new_loan["future_value"],new_loan["remaining_months"],annual_discount_rate)
+print(f"The present value of the loan is: ${round(present_value, 2)}")
 
 """Part 4: Conditionally filter lists of loans.
 
